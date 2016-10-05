@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<father>
+    <name>Totito</name>
+    <age>1</age>
+
+    <childs>
+
+        <child>
+            <name>ONE</name>
+            <indicator>1000.23</indicator>
+            <friends>
+            </friends>
+        </child>
+        <child>
+            <name>TWO</name>
+            <indicator>10020.23</indicator>
+            <friends>
+                <friend>
+                    <name>best  friend</name>
+                    <age>14</age>
+                </friend>
+            </friends>
+        </child>
+        <child>
+            <name>THREE</name>
+            <indicator>130020.23</indicator>
+        </child>
+    </childs>
+</father>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE digester-rules PUBLIC "-//Jakarta Apache //DTD digester-rules XML V1.0//EN"
+        "http://jakarta.apache.org/commons/digester/dtds/digester-rules.dtd">
+<digester-rules>
+    <pattern value="father">
+        <object-create-rule classname="com.guillermods.digesterexamples.Father"/>
+        <call-method-rule pattern="name" methodname="setName"  paramcount="0" />
+        <call-method-rule pattern="age" methodname="setAge"  paramcount="0" paramtypes="java.lang.Integer"/>
+
+        <pattern value="childs">
+            <object-create-rule classname="java.util.ArrayList"/> <!-- Crea una nueva lista-->
+
+            <pattern value="child">
+                <object-create-rule classname="com.guillermods.digesterexamples.Child"/>
+                <call-method-rule pattern="name" methodname="setName"  paramcount="0" />
+                <call-method-rule pattern="indicator" methodname="setIndicator"  paramcount="0" paramtypes="java.math.BigDecimal"/>
+
+                <set-next-rule methodname="add"/>
+
+                <pattern value="friends">
+                    <object-create-rule classname="java.util.ArrayList"/>
+                    <pattern value="friend">
+                        <object-create-rule classname="com.guillermods.digesterexamples.Friend"/>
+                        <call-method-rule pattern="name" methodname="setFriendName" paramcount="0"/>
+                        <call-method-rule pattern="age" methodname="setFriendAge" paramcount="0" paramtypes="java.lang.Integer"/>
+                        <set-next-rule methodname="add"/>
+                    </pattern>
+                    <set-next-rule methodname="setFriends"/>
+
+                </pattern>
+            </pattern>
+
+            <set-next-rule methodname="setChilds"/> <!-- hace el llamado de un metodo de la clase de fuera -->
+        </pattern>
+
+    </pattern>
+</digester-rules>
